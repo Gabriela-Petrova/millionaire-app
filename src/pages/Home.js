@@ -47,9 +47,6 @@ function Home() {
           Get Started
         </Button>
       </Box>
-      {/* <Link to="/game">
-        <button>Start Game</button>
-      </Link> */}
     </form>
   );
 }

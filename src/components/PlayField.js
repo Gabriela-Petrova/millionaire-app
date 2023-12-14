@@ -1,4 +1,10 @@
-import { Box, Button, CircularProgress, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  CircularProgress,
+  Typography,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
@@ -32,15 +38,17 @@ const PlayField = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (response?.results.length) {
+    if (response?.results?.length > 0) {
       const question = response.results[questionIndex];
-      let answers = [...question.incorrect_answers];
-      answers.splice(
-        getRandomInt(question.incorrect_answers.length),
-        0,
-        question.correct_answer
-      );
-      setOptions(answers);
+      if (question) {
+        let answers = [...question.incorrect_answers];
+        answers.splice(
+          getRandomInt(question.incorrect_answers.length),
+          0,
+          question.correct_answer
+        );
+        setOptions(answers);
+      }
     }
   }, [response, questionIndex]);
 

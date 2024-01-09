@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Dropdown from "../components/Dropdown";
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import useAxios from "../hooks/useAxios";
+import logo from "../assets/pngaaa.com-3782989.png";
 
 function Home() {
   const { response, error, loading } = useAxios({ url: "/api_category.php" });
@@ -35,19 +36,22 @@ function Home() {
   };
 
   return (
-    <form onSubmit={hendleSubmit}>
-      <Typography variant="h3" fontWeight="bold">
-        Who wants to be a millionaire?
-      </Typography>
-      <Dropdown options={response.trivia_categories} label="Category" />
-      <Dropdown options={difficultyOptions} label="Difficulty" />
+    <>
+      <img src={logo} alt="Logo" />
+      <form onSubmit={hendleSubmit}>
+        <Typography variant="h3" fontWeight="bold">
+          Start Game
+        </Typography>
+        <Dropdown options={response.trivia_categories} label="Category" />
+        <Dropdown options={difficultyOptions} label="Difficulty" />
 
-      <Box mt={3} width="100%">
-        <Button fullWidth variant="contained" type="submit">
-          Get Started
-        </Button>
-      </Box>
-    </form>
+        <Box mt={3} width="100%">
+          <Button fullWidth variant="contained" type="submit">
+            Get Started
+          </Button>
+        </Box>
+      </form>
+    </>
   );
 }
 

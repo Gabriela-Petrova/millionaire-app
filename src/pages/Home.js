@@ -3,6 +3,7 @@ import Dropdown from "../components/Dropdown";
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import useAxios from "../hooks/useAxios";
 import logo from "../assets/pngaaa.com-3782989.png";
+import styles from "./Home.module.css";
 
 function Home() {
   const { response, error, loading } = useAxios({ url: "/api_category.php" });
@@ -37,7 +38,7 @@ function Home() {
 
   return (
     <>
-      <img src={logo} alt="Logo" />
+      <img src={logo} alt="Logo" className={styles.logoImg} />
       <form onSubmit={hendleSubmit}>
         <Typography variant="h3" fontWeight="bold">
           Start Game

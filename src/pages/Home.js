@@ -47,7 +47,12 @@ function Home() {
         <Dropdown options={difficultyOptions} label="Difficulty" />
 
         <Box mt={3} width="100%">
-          <Button fullWidth variant="contained" type="submit">
+          <Button
+            fullWidth
+            variant="contained"
+            type="submit"
+            className={styles.startBtn}
+          >
             Get Started
           </Button>
         </Box>

@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { handleCategoryChange, handleDifficultyChange } from "../store/actions";
+import styles from "./Dropdown.module.css";
 
 const Dropdown = (props) => {
   const { label, options } = props;
@@ -27,7 +28,12 @@ const Dropdown = (props) => {
     <Box mt={3} width="100%">
       <FormControl fullWidth size="small">
         <InputLabel>{label}</InputLabel>
-        <Select value={value} label={label} onChange={handleChange}>
+        <Select
+          value={value}
+          label={label}
+          onChange={handleChange}
+          className={styles.gradient}
+        >
           {options.map(({ id, name }) => (
             <MenuItem value={id} key={id}>
               {name}

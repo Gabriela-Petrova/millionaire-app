@@ -70,22 +70,6 @@ const PlayField = () => {
   };
 
   return (
-    // <Box>
-    //   <Typography mt={5}>
-    //     {decode(response.results[questionIndex].question)}
-    //   </Typography>
-
-    //   {options.map((data, id) => (
-    //     <Box mt={2} key={id}>
-    //       <Button onClick={handleClickAnswer} variant="contained">
-    //         {decode(data)}
-    //       </Button>
-    //     </Box>
-    //   ))}
-
-    //   <Box mt={5}>{questionIndex + 1} / 15</Box>
-    // </Box>
-
     <Box
       display="flex"
       flexDirection="column"

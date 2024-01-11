@@ -1,4 +1,10 @@
-import { Box, Button, CircularProgress, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  CircularProgress,
+  Typography,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
@@ -70,50 +76,18 @@ const PlayField = () => {
   };
 
   return (
-    // <Box>
-    //   <Typography mt={5}>
-    //     {decode(response.results[questionIndex].question)}
-    //   </Typography>
-
-    //   {options.map((data, id) => (
-    //     <Box mt={2} key={id}>
-    //       <Button onClick={handleClickAnswer} variant="contained">
-    //         {decode(data)}
-    //       </Button>
-    //     </Box>
-    //   ))}
-
-    //   <Box mt={5}>{questionIndex + 1} / 15</Box>
-    // </Box>
-
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      style={{ width: "100%" }}
-    >
+    <Box>
       <Typography mt={5}>
         {decode(response.results[questionIndex].question)}
       </Typography>
 
-      <Box
-        display="flex"
-        flexWrap="wrap"
-        justifyContent="space-between"
-        mt={2}
-        style={{ width: "100%" }}
-      >
-        {options.map((data, id) => (
-          <Button
-            key={id}
-            onClick={handleClickAnswer}
-            variant="contained"
-            style={{ marginBottom: "10px", width: "49%" }}
-          >
+      {options.map((data, id) => (
+        <Box mt={2} key={id}>
+          <Button onClick={handleClickAnswer} variant="contained">
             {decode(data)}
           </Button>
-        ))}
-      </Box>
+        </Box>
+      ))}
 
       <Box mt={5}>{questionIndex + 1} / 15</Box>
     </Box>

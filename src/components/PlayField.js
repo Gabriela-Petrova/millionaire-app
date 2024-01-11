@@ -5,6 +5,7 @@ import useAxios from "../hooks/useAxios";
 import { useDispatch, useSelector } from "react-redux";
 import { handleScoreChange } from "../store/actions";
 import { decode } from "html-entities";
+import Timer from "./Timer";
 
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
@@ -76,6 +77,8 @@ const PlayField = () => {
       alignItems="center"
       style={{ width: "100%" }}
     >
+      <Timer questionIndex={questionIndex} />
+
       <Typography mt={5}>
         {decode(response.results[questionIndex].question)}
       </Typography>

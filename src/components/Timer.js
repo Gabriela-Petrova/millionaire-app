@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Timer.module.css";
+import styles from "./Timer.module.css";
 
 const Timer = ({ questionIndex }) => {
   const [timer, setTimer] = useState(60);
@@ -13,13 +13,17 @@ const Timer = ({ questionIndex }) => {
       setTimer((second) => second - 1);
     }, 1000);
     return () => clearInterval(interval);
-  }, [timer]);
+  }, [timer, navigate]);
 
   useEffect(() => {
     setTimer(60);
   }, [questionIndex]);
 
-  return timer;
+  return (
+    <div>
+      <span className={styles.timer}>{timer}</span>
+    </div>
+  );
 };
 
 export default Timer;
